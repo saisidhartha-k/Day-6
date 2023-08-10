@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Form</title>
+    <script>
+        function checkPasswords() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var submitButton = document.getElementById("submitButton");
+
+            if (password === confirmPassword) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="Passwords" method="post">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" oninput="checkPasswords()" required><br>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" oninput="checkPasswords()" required><br>
+
+        <button type="submit" id="submitButton" disabled>Submit</button>
+    </form>
+</body>
+</html>
