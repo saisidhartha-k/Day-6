@@ -6,12 +6,21 @@
 </head>
 <body>
 <h1>odometer</h1>
-<form method="post" action="OdometerServlet">
 	
 	
-</form>
+<span>
+    <form method="get" action="OdometerServlet">
+        <input type="hidden" name="button" value="prev">
+        <button type="submit">prev</button>
+    </form>
+</span>
 
-
+<span>
+    <form method="get" action="OdometerServlet">
+        <input type="hidden" name="button" value="next">
+        <button type="submit">next</button>
+    </form>
+</span>
 <p><span th:text="${reading}">This is gonna get replaced</span></p>
 </body>
 </html>

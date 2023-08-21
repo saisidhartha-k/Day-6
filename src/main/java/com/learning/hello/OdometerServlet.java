@@ -51,10 +51,18 @@ public class OdometerServlet extends HttpServlet {
 		  
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+			String button = req.getParameter("button");
 			
+			if (button == null) {
+	            odom.reset();
+	        } else if (button.equals("prev")) {
+	            odom.decrementReading();
+	        } else if (button.equals("next")) {
+	            odom.increment();
+	        }
 			    var out = resp.getWriter();
 			    final IWebExchange webExchange = 
-			        this.application.buildExchange(req, resp);
+			    this.application.buildExchange(req, resp);
 			    final WebContext ctx = new WebContext(webExchange);
 			    ctx.setVariable("reading", odom.getReading());
 			    templateEngine.process("odometer", ctx, out);
