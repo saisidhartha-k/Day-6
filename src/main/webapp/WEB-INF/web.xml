@@ -36,4 +36,24 @@
     <servlet-name>Passwords</servlet-name>
     <url-pattern>/Passwords</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HighLowServlet</display-name>
+    <servlet-name>HighLowServlet</servlet-name>
+    <servlet-class>com.learning.hello.HighLowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HighLowServlet</servlet-name>
+    <url-pattern>/HighLowServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OdometerServlet</display-name>
+    <servlet-name>OdometerServlet</servlet-name>
+    <servlet-class>com.learning.hello.OdometerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OdometerServlet</servlet-name>
+    <url-pattern>/OdometerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

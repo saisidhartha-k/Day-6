@@ -11,17 +11,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Servlet implementation class Passwords
- */
 public class Passwords extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String user_password = request.getParameter("password");	
