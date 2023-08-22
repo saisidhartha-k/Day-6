@@ -3,24 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <title>odometer</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(94, 92, 100);
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .button-container {
+        margin-top: 10px;
+    }
+
+    .button-container button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .button-container button:hover {
+        background-color: #2980b9;
+    }
+
+    p {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+</style>
 </head>
 <body>
 <h1>odometer</h1>
-	
-	
-<span>
-    <form method="get" action="OdometerServlet">
-        <input type="hidden" name="button" value="prev">
-        <button type="submit">prev</button>
-    </form>
-</span>
+    
+<div class="container">
+    <div class="button-container">
+        <form method="get" action="OdometerServlet">
+            <input type="hidden" name="button" value="prev">
+            <button type="submit">prev</button>
+        </form>
+    </div>
 
-<span>
-    <form method="get" action="OdometerServlet">
-        <input type="hidden" name="button" value="next">
-        <button type="submit">next</button>
-    </form>
-</span>
-<p><span th:text="${reading}">This is gonna get replaced</span></p>
+    <div class="button-container">
+        <form method="get" action="OdometerServlet">
+            <input type="hidden" name="button" value="next">
+            <button type="submit">next</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <form method="get" action="OdometerServlet">
+            <input type="hidden" name="button" value="reset">
+            <button type="submit">reset</button>
+        </form>
+    </div>
+	 <div class="button-container">
+        <form method="get" action="OdometerServlet">
+			 <label for="resize">resize:</label>
+    		<input type="number" id="resize" name="resize" placeholder="Enter your number to resize the odometer">
+            <input type="hidden" name="button" value="resize">
+            <button type="submit">resize</button>
+        </form>
+    </div>
+    <p><span th:text="${reading}">This is gonna get replaced</span></p>
+</div>
 </body>
 </html>

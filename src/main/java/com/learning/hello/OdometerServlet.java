@@ -51,15 +51,45 @@ public class OdometerServlet extends HttpServlet {
 		  
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+//			String temp = req.getParameter("resize");
+//			
+//			if(temp == null)
+//			{
+//				odom = new OdometerControllerpackage(5);
+//			}
+//			if(temp != null)
+//			{
+//				int resizeValue = Integer.parseInt(temp);
+//				odom = new OdometerControllerpackage(resizeValue);
+//			}
 			String button = req.getParameter("button");
-			
-			if (button == null) {
+
+
+		    if ("resize".equals(button))
+		    {
+		        String resizeValueStr = req.getParameter("resize");
+		        if (resizeValueStr != null && !resizeValueStr.isEmpty()) {
+		            int resizeValue = Integer.parseInt(resizeValueStr);
+		            odom = new OdometerControllerpackage(resizeValue);
+		        }}
+		     else if (button == null)
+		     {
 	            odom.reset();
-	        } else if (button.equals("prev")) {
+	        }
+		     else if (button.equals("prev"))
+		     {
 	            odom.decrementReading();
-	        } else if (button.equals("next")) {
+	        }
+		     else if (button.equals("next"))
+		    {
 	            odom.increment();
 	        }
+	        else if(button.equals("reset"))
+	        {
+	        	odom.reset();
+	        }
+			
+
 			    var out = resp.getWriter();
 			    final IWebExchange webExchange = 
 			    this.application.buildExchange(req, resp);

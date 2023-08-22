@@ -56,4 +56,14 @@
     <servlet-name>OdometerServlet</servlet-name>
     <url-pattern>/OdometerServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CardServlet</display-name>
+    <servlet-name>CardServlet</servlet-name>
+    <servlet-class>com.learning.hello.CardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CardServlet</servlet-name>
+    <url-pattern>/CardServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

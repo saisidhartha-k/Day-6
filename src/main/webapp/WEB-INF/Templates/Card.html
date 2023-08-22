@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Player Information Form</title>
+</head>
+<body>
+    <h2>Player Information Form</h2>
+    <form action="form" method="get">
+        <fieldset>
+            <legend>Player 1</legend>
+            <label for="player1Name">Name:</label>
+            <input type="text" id="player1Name" name="player1Name" required><br>
+
+            <label for="player1Bet">Bet Value:</label>
+            <input type="number" id="player1Bet" name="player1Bet" min="1" required><br>
+
+            <label for="player1Card">Card Value:</label>
+            <input type="text" id="player1Card" name="player1Card" required><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Player 2</legend>
+            <label for="player2Name">Name:</label>
+            <input type="text" id="player2Name" name="player2Name" required><br>
+
+            <label for="player2Bet">Bet Value:</label>
+            <input type="number" id="player2Bet" name="player2Bet" min="1" required><br>
+
+            <label for="player2Card">Card Value:</label>
+            <input type="text" id="player2Card" name="player2Card" required><br>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+    
+        <p><span th:text="${reading}">This is gonna get replaced</span></p>
+		<p><span th:text="${reading1}">This is gonna get replaced</span></p>
+
+
+</body>
+</html>
