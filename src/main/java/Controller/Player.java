@@ -7,10 +7,10 @@ public class Player {
     String card ;
     Boolean in = false;
     int winMoney = 0;
-
+    String gotCard;
 
     
-    public void Player(String name, int bet, String card, boolean in)
+    public Player(String name, int bet, String card, boolean in)
     {
         this.name= name;
         this.bet= bet;
@@ -18,7 +18,10 @@ public class Player {
         this.in = in;
     }
     
-
+    public String getGotCard()
+    {
+    	return this.gotCard;
+    }
     public void winner(Player loser)
     {
         winMoney = this.bet + loser.bet;
@@ -38,4 +41,10 @@ public class Player {
     {
     	return this.card;
     }
+    public boolean getWinner()
+    {
+    	return this.win;
+    }
+    
+    
 }

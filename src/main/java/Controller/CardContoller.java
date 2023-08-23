@@ -13,8 +13,8 @@ public class CardContoller {
 	};
 
 	ArrayList<String> cardSet ;
-	static ArrayList<String> inList ;
-	static ArrayList<String> outList ;
+	 ArrayList<String> inList ;
+	 ArrayList<String> outList ;
 
 	public CardContoller()
 	{
@@ -42,7 +42,7 @@ public class CardContoller {
         }
 	}
 	
-	public static void shuffle(String[] array) {
+	public void shuffle(String[] array) {
 System.out.println("shuffle");
 			Random random = new Random();
 	
@@ -72,46 +72,43 @@ System.out.println("shuffle");
 //		System.out.println(p2.winMoney);
 //        }
 
-	public static void play(CardContoller t, Player p1, Player p2) {
+	public ArrayList<String> play(CardContoller t, Player p1, Player p2) {
 		
 		System.out.println(p1.name);
 		System.out.println(p1.card);
 		System.out.println(p2.name);
 		System.out.println(p2.card);
+		ArrayList<String> usedValues = new ArrayList<>();
 		
 		System.out.println(t.cardSet.isEmpty());
 		int i = 0;
-		while (!t.cardSet.isEmpty())
-		{
+
 			String randomCard =  getRandomCard(t.cardSet);
-//			System.out.println(randomCard);
 			if(t.inList.contains(randomCard))
 			{
 				System.out.println("iam inside p1 inslist");
-				System.out.println(randomCard);
 
-				if(p1.getCard() == randomCard)
-				{
+				if(p1.getCard().equals(randomCard))			{
 					p1.win=true;
 					p1.winner(p2);
 					System.out.println(p1.winMoney);
 					System.out.println(p1.win);
 					System.out.println("found p1");
-
-					return;
+					
 				}
 			}
+			p1.gotCard = randomCard;
+			usedValues.add(randomCard);
+
 			t.cardSet.remove(randomCard);
+			
 			 randomCard =  getRandomCard(t.cardSet);
 
-//			System.out.println(randomCard);
 
 			if (t.outList.contains(randomCard))
 			{
 				System.out.println("iam inside p2 outslist");
-				System.out.println(randomCard);
-				System.out.println(p2.card);
-				if(p2.getCard() == randomCard)
+				if(p2.getCard().equals(randomCard))
 				{
 					p2.win=true;
 					p2.winner(p1);
@@ -119,12 +116,15 @@ System.out.println("shuffle");
 
 					System.out.println(p2.winMoney);
 					System.out.println("found p2");
-					return;
 				}
 			}
-			t.cardSet.remove(randomCard);
+			p2.gotCard = randomCard;
 
-		}
+			usedValues.add(randomCard);
+			t.cardSet.remove(randomCard);
+			
+		
+		return usedValues;
 	}
 
 	public static String getRandomCard(ArrayList<String> cardSet2) {
